@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to seed MongoDB with Node.js from command line"
-date: 2014-10-11 01:08:03 -0700
+date: 2014-10-12 01:08:03 -0700
 comments: true
 categories: 
 categories: [mongodb, node.js]

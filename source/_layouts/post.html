@@ -16,8 +16,10 @@ single: true
           {% include post/author.html %}
           <span class="text-muted-separator">|</span>
           {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
-          <span class="text-muted-separator">|</span>          
-          {% include post/categories.html %}
+          {% capture category %}{% if post %}{{ post.categories | category_links | size }}{% else %}{{ page.categories | category_links | size }}{% endif %}{% endcapture %}
+            {% unless category == '0' %}
+            {% include post/categories.html %}
+          {% endunless %}
         </p>
         {% unless page.sharing == false %}
           {% include post/sharing.html %}
