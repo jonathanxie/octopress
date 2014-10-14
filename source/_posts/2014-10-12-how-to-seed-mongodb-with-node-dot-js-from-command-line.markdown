@@ -3,11 +3,8 @@ layout: post
 title: "How to seed MongoDB with Node.js from command line"
 date: 2014-10-12 01:08:03 -0700
 comments: true
-categories: 
 categories: [mongodb, node.js]
 ---
-
-## Background
 
 I'm new to Node.js and this blog is to help me remember what I did. Hopefully, it will also help others who are reading this. Comments and suggestions are welcome since I'm newbie.
 
@@ -20,13 +17,14 @@ For Node.js, I wanted a command like `node seed.js` to
 3. Recreate the DB
 4. Insert documents into DB
 
+<!--more-->
 
 There are a few libraries out there for handling migrations, but I didn't use them here and maybe I'll use them in a future post.
 
 * [mongo-migrate - https://github.com/afloyd/mongo-migrate](https://github.com/afloyd/mongo-migrate)
 * [node-migrate - https://github.com/visionmedia/node-migrate](https://github.com/visionmedia/node-migrate)
 
-<!--more-->
+
 
 ## Node.js = Asynchronous
 
