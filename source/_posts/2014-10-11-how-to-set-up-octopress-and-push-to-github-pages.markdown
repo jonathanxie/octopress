@@ -79,9 +79,9 @@ You will see a blog post called `Hello World` and the url should be:
 [http://localhost:4000/blog/2014/10/13/hello-world](http://localhost:4000/blog/2014/10/13/hello-world)
 
 
-## Saving your code to Github
+## Git and Github
 
-Next you should save your code to Github. But first I will explain some things about git. Earlier you created a fork of Octopress to your github account. My fork is at:
+Now I will explain some things about git. Earlier you created a fork of Octopress to your github account. My fork is at:
 
 [https://github.com/jonathanxie/octopress.git](https://github.com/jonathanxie/octopress.git)
 
@@ -175,7 +175,14 @@ Run `git branch` again and you will see:
 * master
 ```
 
-Now run the following command to save your new blog post to your remote repository: git push origin master
+
+## Saving your code to Github
+
+Now that you some understanding about git and Github, it's time to save your blog post to your repository.
+
+run the following command to save your new blog post to your remote repository: git push origin master
+
+
 
 
 
