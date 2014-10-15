@@ -6,7 +6,7 @@ comments: true
 categories: [mongodb, node.js]
 ---
 
-I'm new to Node.js and this blog is to help me remember what I did. Hopefully, it will also help others who are reading this. Comments and suggestions are welcome since I'm newbie.
+I'm new to Node.js and this blog post is to help me remember what I did as I learn it. Hopefully, it will also help others who are reading this. Comments and suggestions are welcome.
 
 I have a Rails background so I'm used to having nice terminal commands like Rail's `rake` command. To create a database and populate it, I would use a terminal command like: `rake db:setup`
 

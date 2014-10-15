@@ -342,6 +342,7 @@ http://octopress.org/docs/blogging/
 <br/>http://octopress.org/docs/deploying/github/
 <br/>http://allenyee.me/blog/2013/08/21/what-i-learned-from-hosting-octopress-on-github/
 <br/>http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/
+<br/>http://webdesign.tutsplus.com/tutorials/getting-started-with-octopress--webdesign-11442
 <br/>
 <br/>
 ### Git Guides
@@ -350,3 +351,10 @@ https://help.github.com/articles/set-up-git/
 <br/>http://gitref.org/remotes/
 <br/>https://www.atlassian.com/git/tutorials/using-branches/
 <br/>http://gitref.org/branching/#branch
+<br/>
+<br/>
+### Markdown for blogging
+https://guides.github.com/features/mastering-markdown/
+<br/>http://markdowntutorial.com/
+<br/>https://daringfireball.net/projects/markdown/basics
+<br/>http://mathewmitchell.net/tutorials/markdown/
