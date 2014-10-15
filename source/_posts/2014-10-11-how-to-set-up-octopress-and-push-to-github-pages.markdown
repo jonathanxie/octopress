@@ -217,11 +217,23 @@ Then you should see:
  create mode 100644 source/_posts/2014-10-14-hello-world.markdown
 {% endcodeblock %}
 
-Now your changes have been committed to your local copy of the repository but you have to push them to your remote repository. 
+Now your changes have been committed to your local copy of the repository but you have to push them to your remote repository. Remember you're on the `master` branch right now and your remote repository is called `origin`. **So you need to tell git to push your committed changes from the master branch of your local repository to the master branch of the remote repository at origin**
 
 Run: `git push origin master`
 
+You should see something like:
 
+{% codeblock %}
+
+Counting objects: 18, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 340 bytes | 0 bytes/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+To https://github.com/jonathanxie/octopress.git
+   ca939a8..8c84805  master -> master
+
+{% endcodeblock %}
 
 
 
@@ -229,7 +241,7 @@ Run: `git push origin master`
 
 ### Setting up Octopress to deploy to Github Pages
 
-For the original tutorial, go to [Octopress](http://octopress.org/docs/deploying/github).
+Now that you have successfully pushed your code to github, it's time to setup your blog so that Github Pages can host it. The original tutorial on Octopress' site is [here](http://octopress.org/docs/deploying/github).
 
 Github Pages allows for free hosting of your blog! So first go to your github account and create a repository called `username.github.io`, where `username` is your GitHub user name or organization name. Do not add an LICENSES or README files just yet when you set up the page. You will need a clean repository. 
 
@@ -258,27 +270,48 @@ This rake task will:
 7. Setup a master branch in this `_deploy` directory
 8. Push the code in this new master branch to the new `origin`
 
+Now if everything is setup correctly, you should be able to view your blog at: 
+
+http://YOUR_GITHUB_USERNAME.github.io
 
 
 
 ### Branches and origins have changed
 
+Note that your branch has changed from `master` to `source` as stated by step 4. Run: `git branch`
+
+{% codeblock Output for: git branch %}
+* source
+{% endcodeblock %}
+
+Also note that your remote repositories have changed as stated in Steps 2 and 7. Run: `git remote -v`
+
+{% codeblock Output for: git remote -v %}
+octopress https://github.com/jonathanxie/octopress.git (fetch)
+octopress https://github.com/jonathanxie/octopress.git (push)
+origin  https://github.com/jonathanxie/jonathanxie.github.io (fetch)
+origin  https://github.com/jonathanxie/jonathanxie.github.io (push)
+{% endcodeblock %}
 
 
 
+Now when you run `rake deploy`, your code from the `source` directory will be compiled to the `_deploy` directory, which has `master` branch. `rake deploy` will also commit and push the code from the `_deploy` directory to the remote repository at `origin`: https://github.com/jonathanxie/jonathanxie.github.io
 
-Need to save uncompiled markdown code and you use the octopress branch 
-and push committed code to octopress remote repo
+So you shouldn't have to ever go into the `_deploy` directory to do anything. Now to commit and push your code in the `source` directory to your Octopress repository, you just something like the following: 
 
+{% codeblock Code to commit and push your code to the Octopress remote repository %}
+git add -A 
+git commit -m "Add some all modified and deleted files"
+git push octopress source
+{% endcodeblock %}
 
-This rake task will ask you for the URL of your Github repository. Paste in the URL I asked you to copy earlier as a response in the terminal. 
+`git push octopress source` means you are pushing from the `source` branch to `octopress`, which is a remote repository pointing to: https://github.com/YOUR_GITHUB_USERNAME/octopress.git
 
+When you push from `source` to `octopress`, git will create a new branch in the remote repository on Github. So if you need to clone your repository again, you should use the following command (remember to change `jonathanxie` to **your github username**):
 
-
-
-## Deploying to Github Pages
-
-
+{% codeblock Command to clone the 'source' branch of your Octopress remote repository %}
+git clone https://github.com/jonathanxie/octopress.git -b source --single-branch
+{% endcodeblock %}
 
 ## References
 
