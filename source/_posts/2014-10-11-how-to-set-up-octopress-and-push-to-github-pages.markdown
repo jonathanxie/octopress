@@ -294,10 +294,20 @@ origin  https://github.com/jonathanxie/jonathanxie.github.io (push)
 {% endcodeblock %}
 
 
+## rake deploy
 
+**IMPORTANT NOTE:** Make sure to always run `rake generate` before `rake deploy`. If not, your changes in your code will **NEVER** get pushed to Github Pages. 
+<br/>
+<br/>
 Now when you run `rake deploy`, your code from the `source` directory will be compiled to the `_deploy` directory, which has `master` branch. `rake deploy` will also commit and push the code from the `_deploy` directory to the remote repository at `origin`: https://github.com/jonathanxie/jonathanxie.github.io
 
-So you shouldn't have to ever go into the `_deploy` directory to do anything. Now to commit and push your code in the `source` directory to your Octopress repository, you just something like the following: 
+So you shouldn't have to ever go into the `_deploy` directory to do anything. 
+
+
+
+## Saving your code to your Octopress remote repository.
+
+It is important to note that `rake deploy` does not save your code to your Octopress remote repository. You still need to save the code you typed up until now. To commit and push your code in the `source` directory to your Octopress repository at https://github.com/jonathanxie/octopress.git, run: 
 
 {% codeblock Code to commit and push your code to the Octopress remote repository %}
 git add -A 
