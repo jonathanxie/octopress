@@ -66,7 +66,7 @@ To see your remote repositories, in your terminal type: `git remote -v`
 
 For the output, you should see something like:
 
-{% codeblock Output for 'git remote -v' %}
+{% codeblock Output for: git remote -v %}
 origin  https://github.com/jonathanxie/octopress.git (fetch)
 origin  https://github.com/jonathanxie/octopress.git (push)
 {% endcodeblock %}
@@ -86,7 +86,7 @@ Right now your local repository has one branch called `master`. To check what br
 
 You should see:
 
-{% codeblock Output for 'git branch' %}
+{% codeblock Output for: git branch %}
 * master
 {% endcodeblock %}
 
@@ -101,7 +101,7 @@ git checkout jonathan_new_feature
 
 `git checkout` is the way to switch to a new branch. When you run that command you should see the following output:
 
-{% codeblock Output for 'git new branch %}
+{% codeblock Output for: git new branch %}
 Switched to branch 'jonathan_new_feature'
 {% endcodeblock %}
 
@@ -116,7 +116,7 @@ Now run `git branch` and you should see:
 
 Note the `*` next to `jonathan_new_feature`. This means you are now working on `jonathan_new_feature` instead of `master`. To switch back, just run: `git checkout master` and you will see:
 
-{% codeblock Output for 'git checkout master' %}
+{% codeblock Output for: git checkout master %}
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
 {% endcodeblock %}
@@ -127,13 +127,13 @@ You can now delete the newly created branch with: `git branch -D jonathan_new_fe
 
 You should see the following out:
 
-{% codeblock Output for 'git branch -D jonathan_new_feature' %}
+{% codeblock Output for: git branch -D jonathan_new_feature %}
 Deleted branch jonathan_new_feature (was a311b68).
 {% endcodeblock %}
 
 Run `git branch` again and you will see:
 
-{% codeblock Output for 'git branch' %}
+{% codeblock Output for: git branch %}
 * master
 {% endcodeblock %}
 
@@ -148,7 +148,7 @@ rake new_post["Hello World"]
 
 You should see the following output:
 
-{% codeblock Output for 'rake new_post["Hello World"]'%}
+{% codeblock Output for: rake new_post["Hello World"]%}
 mkdir -p source/_posts
 Creating new post: source/_posts/2014-10-11-hello-world.markdown
 {% endcodeblock %}
@@ -188,7 +188,40 @@ You will see a blog post called `Hello World` and the url should be:
 
 Now that you have your first blog post, it's time to save your it to your repository.
 
-Run the following command: `git push origin master`
+Run the following command: `git status`
+
+You should see the following output:
+
+{% codeblock Output for: git status %}
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  source/_posts/2014-10-11-hello-world.markdown
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+{% endcodeblock %}
+
+So you're on the `master` branch with an untracked file: `source/_posts/2014-10-11-hello-world.markdown`
+
+Run this command to add the file: `git add source/_posts/2014-10-11-hello-world.markdown`
+
+Now the file is added and tracked by git. Next run: `git commit -m "Adding Hello World blog post"`
+
+Then you should see:
+
+{% codeblock Output for: git commit - m "Adding Hello World blog post" %}
+[source c779ac2] Adding test file
+ 1 file changed, 7 insertions(+)
+ create mode 100644 source/_posts/2014-10-14-hello-world.markdown
+{% endcodeblock %}
+
+Now your changes have been committed to your local copy of the repository but you have to push them to your remote repository. 
+
+Run: `git push origin master`
+
+
 
 
 
