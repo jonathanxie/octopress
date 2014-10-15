@@ -30,7 +30,7 @@ Please note that I'm working off a Macbook Pro with OSX 10.9.5.
 6. Download Octostrap3 theme into a hidden directy called .themes:<br/>`git clone https://github.com/kAworu/octostrap3 .themes/octostrap3`
 7. Install the Octostrap 3 theme: `rake 'install[octostrap3]'`
 8. Generate the pages: `rake generate`
-9. Test drive the blog: `rake preview watch`
+9. Test drive the blog by starting the built in web server: `rake preview watch` 
 10. Go to your browser such as Google Chrome and go to: `http://localhost:4000`
 
 <br/>
@@ -38,46 +38,7 @@ Here are the steps 4-9 that you would execute line by line in your [terminal](ht
 
 <script src="https://gist.github.com/jonathanxie/25ebaa61034fbe9c2dc0.js"></script>
 
-
-## Creating your first blog post on Octopress
-
-Time to create your first blog post from the terminal. If you're still running `rake preview watch` in your current terminal, push `Ctrl-C` to get back control of the terminal. Then do the following command:
-
-```
-rake new_post["Hello World"]
-# Creates source/_posts/2014-10-11-hello-world.markdown
-```
-
-You can now edit the file using [markdown](https://help.github.com/articles/markdown-basics/) at the following directory:
-
-`~/Desktop/octopress/source/_posts/2014-10-11-hello-world.markdown`
-
-I prefer to use [Sublime Text](http://www.sublimetext.com/) and I've setup it up to use from [command line](https://www.sublimetext.com/docs/2/osx_command_line.html).
-
-```
-subl ~/Desktop/octopress
-```
-
-Then push `Command-T`in Sublime Text and type in `2014-10-11-hello-world.markdown` in the file search dialog bog and open that file. You will then see `[front matter](http://jekyllrb.com/docs/frontmatter/)` text:
-
-```
----
-layout: post
-title: "Hello World"
-date: 2014-10-13 16:04:07 -0700
-comments: true
-categories: 
----
-```
-
-Add something simple below that: `Hello World! This is my first post!`
-
-Save the file, then run: `rake preview watch` and go to: [http://localhost:4000](http://localhost:4000)
-
-You will see a blog post called `Hello World` and the url should be: 
-
-[http://localhost:4000/blog/2014/10/13/hello-world](http://localhost:4000/blog/2014/10/13/hello-world)
-
+In terminal, `push CTRL-C` to stop the web server.
 
 ## Git and Github
 
@@ -105,10 +66,11 @@ To see your remote repositories, in your terminal type: `git remote -v`
 
 For the output, you should see something like:
 
-```
+{% codeblock Output for 'git remote -v' %}
 origin  https://github.com/jonathanxie/octopress.git (fetch)
 origin  https://github.com/jonathanxie/octopress.git (push)
-```
+{% endcodeblock %}
+
 
 As you can see, your `origin` for fetching and pushing code points to the remote repository you forked earlier. 
 
@@ -124,40 +86,40 @@ Right now your local repository has one branch called `master`. To check what br
 
 You should see:
 
-```
+{% codeblock Output for 'git branch' %}
 * master
-```
+{% endcodeblock %}
 
 The `*` in front of `master` represents the current branch you are working on in the repository. So note that you are currently working in the `master` branch of your repository. When you run `git init` to create a local working repository or `git clone https://github.com/jonathanxie/octopress.git` to copy a remote repository, git will **automatically create a `master` branch for you by default to start off with in your repository**. 
 
 Now say for example, you and I are working on the same remote repository but developing different features. I can create a branch from the master branch called `jonathan-feature-x` and switch to that new branch. Then you could stay on the master branch without worrying about my chances until we merge code. The code would look like:
 
-```
+{% codeblock Code to create and switch to a new branch %}
 git branch jonathan_new_feature
 git checkout jonathan_new_feature
-```
+{% endcodeblock %}
 
 `git checkout` is the way to switch to a new branch. When you run that command you should see the following output:
 
-```
+{% codeblock Output for 'git new branch %}
 Switched to branch 'jonathan_new_feature'
-```
+{% endcodeblock %}
 
 Note that I could have also done this in one line with: `git checkout -b jonathan_new_feature`
 
 Now run `git branch` and you should see:
 
-```
+{% codeblock Code to create and switch to a new branch %}
 * jonathan_new_feature
   master
-```
+{% endcodeblock %}
 
 Note the `*` next to `jonathan_new_feature`. This means you are now working on `jonathan_new_feature` instead of `master`. To switch back, just run: `git checkout master` and you will see:
 
-```
+{% codeblock Output for 'git checkout master' %}
 Switched to branch 'master'
 Your branch is up-to-date with 'origin/master'.
-```
+{% endcodeblock %}
 
 The status message saying `Your branch is up-to-date with 'origin/master'.`  means that there are no merges or changes after switching branches.
 
@@ -165,22 +127,68 @@ You can now delete the newly created branch with: `git branch -D jonathan_new_fe
 
 You should see the following out:
 
-```
+{% codeblock Output for 'git branch -D jonathan_new_feature' %}
 Deleted branch jonathan_new_feature (was a311b68).
-```
+{% endcodeblock %}
 
 Run `git branch` again and you will see:
 
-```
+{% codeblock Output for 'git branch' %}
 * master
-```
+{% endcodeblock %}
+
+
+## Creating your first blog post on Octopress
+
+Now that you some understanding about git and Github, it's time to create your first blog post. In terminal, run:
+
+{% codeblock Code to create a new blog post %}
+rake new_post["Hello World"]
+{% endcodeblock %}
+
+You should see the following output:
+
+{% codeblock Output for 'rake new_post["Hello World"]'%}
+mkdir -p source/_posts
+Creating new post: source/_posts/2014-10-11-hello-world.markdown
+{% endcodeblock %}
+
+You can now edit the file using [markdown](https://help.github.com/articles/markdown-basics/) at the following directory:
+
+`~/Desktop/octopress/source/_posts/2014-10-11-hello-world.markdown`
+
+I prefer to use [Sublime Text](http://www.sublimetext.com/) and I've setup it up to use from [command line](https://www.sublimetext.com/docs/2/osx_command_line.html). You can use any text editor but if you have Sublime Text like me, run the following command:
+
+{% codeblock Run Sublime Text %}
+subl ~/Desktop/octopress
+{% endcodeblock %}
+
+Then push `Command-T` in Sublime Text and type in `2014-10-11-hello-world.markdown` in the file search dialog bog and open that file. You will then see `[front matter](http://jekyllrb.com/docs/frontmatter/)` text:
+
+{% codeblock Front Matter at top of markdown file %}
+---
+layout: post
+title: "Hello World"
+date: 2014-10-13 16:04:07 -0700
+comments: true
+categories: 
+---
+{% endcodeblock %}
+
+Add something simple below that: `Hello World! This is my first post!`
+
+Save the file, then run: `rake preview watch` and go to: [http://localhost:4000](http://localhost:4000)
+
+You will see a blog post called `Hello World` and the url should be: 
+
+[http://localhost:4000/blog/2014/10/13/hello-world](http://localhost:4000/blog/2014/10/13/hello-world)
 
 
 ## Saving your code to Github
 
-Now that you some understanding about git and Github, it's time to save your blog post to your repository.
+Now that you have your first blog post, it's time to save your it to your repository.
 
-run the following command to save your new blog post to your remote repository: git push origin master
+Run the following command: `git push origin master`
 
 
 
@@ -196,15 +204,15 @@ My repository is called `jonathanxie.github.io` and you can go to https://jonath
 
 Now copy your repository's HTTPS url, it should looking something like:
 
-```
+{% codeblock Example of Github blog repository URL for Github Pages %}
 https://github.com/jonathanxie/jonathanxie.github.io.git
-```
+{% endcodeblock %}
 
 Go back to the terminal and run the following command to setup deployment to Github Pages:
 
-```
+{% codeblock Command to setup Octopress for Github Pages %}
 rake setup_github_pages
-```
+{% endcodeblock %}
 
 This rake task will:
 
@@ -217,7 +225,10 @@ This rake task will:
 7. Setup a master branch in this `_deploy` directory
 8. Push the code in this new master branch to the new `origin`
 
-#### Branches and origins have changed
+
+
+
+### Branches and origins have changed
 
 
 
