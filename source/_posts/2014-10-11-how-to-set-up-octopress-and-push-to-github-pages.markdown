@@ -305,6 +305,18 @@ git commit -m "Add some all modified and deleted files"
 git push octopress source
 {% endcodeblock %}
 
+You should see something like:
+
+{% codeblock Output for: git push octopress source %}
+Counting objects: 20, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 1.48 KiB | 0 bytes/s, done.
+Total 5 (delta 4), reused 0 (delta 0)
+To https://github.com/jonathanxie/octopress.git
+   8c84805..524526c  source -> source
+{% endcodeblock %}
+
 `git push octopress source` means you are pushing from the `source` branch to `octopress`, which is a remote repository pointing to: https://github.com/YOUR_GITHUB_USERNAME/octopress.git
 
 When you push from `source` to `octopress`, git will create a new branch in the remote repository on Github. So if you need to clone your repository again, you should use the following command (remember to change `jonathanxie` to **your github username**):
