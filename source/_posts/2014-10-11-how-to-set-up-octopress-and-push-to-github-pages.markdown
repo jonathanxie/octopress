@@ -352,6 +352,7 @@ https://help.github.com/articles/set-up-git/
 <br/>https://www.atlassian.com/git/tutorials/using-branches/
 <br/>http://gitref.org/branching/#branch
 <br/>http://stackoverflow.com/questions/9529497/what-is-origin-in-git
+<br/>http://stackoverflow.com/questions/20033863/pull-specific-branch-from-git
 <br/>
 <br/>
 ### Markdown for blogging
