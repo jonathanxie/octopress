@@ -12,13 +12,18 @@ This is my first time setting up a blog using Octopress/Jekyll and hosting it on
 
 ## Initial Setup
 
-Please note that I'm working off a Macbook Pro with OSX 10.9.5.
+Please note that I'm working off a Macbook Pro with OSX 10.9.5. 
+
+So you will need [git](http://git-scm.com/video/what-is-git) to save your blog posts to github. You'll also need to install [ruby](http://en.wikipedia.org/wiki/Ruby_programming_language) because Octopress is built on that programming language.
 
 1. Get a [github account](https://www.github.com)
 2. Get [Git](http://git-scm.com/downloads)
 3. [Setup Git](https://help.github.com/articles/set-up-git/) and learn how to [fork a repo](https://help.github.com/articles/fork-a-repo/)
-4. Get Ruby 1.9.3 or higher using [rbenv](https://github.com/sstephenson/rbenv) or [RVM](http://rvm.io/rvm/install)
+4. Install [homebrew](http://brew.sh):<br/>`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+5. Then install rbenv using homebrew https://github.com/sstephenson/rbenv#homebrew-on-mac-os-x
 5. Run `ruby --version` in your [terminal](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line) to make sure you're running at v1.9.3 or higher
+
+
 
 ## Setup Octopress 
 
