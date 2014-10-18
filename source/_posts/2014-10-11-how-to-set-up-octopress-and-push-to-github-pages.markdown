@@ -27,16 +27,21 @@ So you will need [git](http://git-scm.com/video/what-is-git) to save your blog p
 
 ## Setup Octopress 
 
+The original setup blog post can be found here: http://octopress.org/docs/setup/
+
 1. Login to github and go to [Octopress](https://github.com/imathis/octopress)
 2. At the top right of Octopress' [repo page], fork the repo by click on the [Fork](https://github.com/imathis/octopress/fork) button at the top right
 3. You should have a fork of Octopress in your own repo, like I do at [https://github.com/jonathanxie/octopress](https://github.com/jonathanxie/octopress)
-4. Clone your own fork to your `Desktop` by using [Github's desktop client](github-mac://openRepo/https://github.com/jonathanxie/octopress) or with the following commands in terminal: `git clone https://github.com/YOUR_GIT_USERNAME/octopress.git` - Make sure to use your git username here.
+4. Clone your own fork to your `Desktop` by using [Github's desktop client](https://mac.github.com/) or with the following commands in terminal: `git clone https://github.com/YOUR_GIT_USERNAME/octopress.git` - Make sure to use your git username here.
 5. Go to cloned repo you just created: `cd octopress`
 6. Download Octostrap3 theme into a hidden directy called .themes:<br/>`git clone https://github.com/kAworu/octostrap3 .themes/octostrap3`
-7. Install the Octostrap 3 theme: `rake 'install[octostrap3]'`
-8. Generate the pages: `rake generate`
-9. Test drive the blog by starting the built in web server: `rake preview watch` 
-10. Go to your browser such as Google Chrome and go to: `http://localhost:4000`
+7. Run: gem install bundler
+8. If you are using rbenv, run: `rbenv rehash`    
+9. Run: `bundle install`
+10. Install the Octostrap 3 theme: `rake 'install[octostrap3]'`
+11. Generate the pages: `rake generate`
+12 Test drive the blog by starting the built in web server: `rake preview watch` 
+13. Go to your browser such as Google Chrome and go to: `http://localhost:4000`
 
 <br/>
 Here are the steps 4-9 that you would execute line by line in your [terminal](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line):
