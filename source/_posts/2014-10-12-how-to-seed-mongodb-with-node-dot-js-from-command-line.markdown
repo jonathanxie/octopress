@@ -33,7 +33,7 @@ Node.js uses asynchronous calls in an event loop with a single thread. So if you
 1. Read a file and insert it into 1000 User documents into a MongoDB database
 2. Print to console when the code finishes inserting those 1000 documents
 
-<script src="https://gist.github.com/jonathanxie/70d52f124b6159402b8b.js"></script>
+  <script src="https://gist.github.com/jonathanxie/70d52f124b6159402b8b.js"></script>
 
 So there's a problem with the asynchronous nature of Node.js when we want to do certain things sequentially. In the case above, `console.log` would be executed before all the `user.save` calls are done. So how do we fix this? We use a wonderful utility library called:
 
@@ -52,7 +52,7 @@ Now that you a sense of how `async` works, I can move on to the more complicated
 2. Once the connection has been established, drop the database
 3. Create database and add 1000 User documents to the database
 
-Below is a gist of my documented code. 
+Below is a gist of my documented code:
 
 <script src="https://gist.github.com/jonathanxie/42e87ced561c1b8b0d58.js"></script>
 
