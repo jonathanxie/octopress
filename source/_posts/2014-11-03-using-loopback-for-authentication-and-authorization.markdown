@@ -429,13 +429,13 @@ Before you were using StrongLoop's in-memory datasource to save data. Now it's t
 
 ## References
 
-#### LoopBack
+### LoopBack
 
 * http://strongloop.com/strongblog/compare-express-restify-hapi-loopback/
 * http://docs.strongloop.com/display/SL/StrongLoop
 * http://docs.strongloop.com/display/LB/Installing+StrongLoop
 * http://docs.strongloop.com/display/LB/Create+a+simple+API
 
-#### MySQL
+### MySQL
 
 * http://dev.mysql.com/doc/refman/5.6/en/adding-users.html

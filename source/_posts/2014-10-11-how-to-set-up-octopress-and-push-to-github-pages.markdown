@@ -390,30 +390,51 @@ The steps I took are:
 
 8. Go to SSH settings on github: [https://github.com/settings/ssh](https://github.com/settings/ssh), click on `Add SSH key` and then enter in the key you copied. 
 
-9. Next edit the file `.git/config` in your octopress directory by changing `url=https` to `url=ssh`. You should see that in two places in your config file.
+9. Next you have to change your git remote URLs from `https` to `ssh`. To look at your remote repositories run: `git remote -v`
+
+		```
+		octopress	https://github.com/jonathanxie/octopress.git (fetch)
+		octopress	https://github.com/jonathanxie/octopress.git (push)
+		origin	https://github.com/jonathanxie/jonathanxie.github.io (fetch)
+		origin	https://github.com/jonathanxie/jonathanxie.github.io (push)
+		```
+
+		Notice that all entries say `https://`? That needs to change to SSH which is something like: `git@github.com:USERNAME/YOUR_REPOSITORY.git`
+
+10. Change the remote address `octopress` to use SSH: 
+
+		`git remote set-url octopress git@github.com:jonathanxie/octopress.git`
+
+11. Change the remote address for `origin` to use SSH
+
+		`git remote set-url origin git@github.com:jonathanxie/jonathanxie.github.io`
+
 
 ## References
 
 ### Octopress 
-http://octopress.org/docs/blogging/ 
-<br/>http://octopress.org/docs/deploying/github/
-<br/>http://allenyee.me/blog/2013/08/21/what-i-learned-from-hosting-octopress-on-github/
-<br/>http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/
-<br/>http://webdesign.tutsplus.com/tutorials/getting-started-with-octopress--webdesign-11442
-<br/>
-<br/>
+
+* http://octopress.org/docs/blogging/ 
+* http://octopress.org/docs/deploying/github/
+* http://allenyee.me/blog/2013/08/21/what-i-learned-from-hosting-octopress-on-github/
+* http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/
+* http://webdesign.tutsplus.com/tutorials/getting-started-with-octopress--webdesign-11442
+
 ### Git Guides
-https://help.github.com/articles/set-up-git/
-<br/>http://rogerdudler.github.io/git-guide/
-<br/>http://gitref.org/remotes/
-<br/>https://www.atlassian.com/git/tutorials/using-branches/
-<br/>http://gitref.org/branching/#branch
-<br/>http://stackoverflow.com/questions/9529497/what-is-origin-in-git
-<br/>http://stackoverflow.com/questions/20033863/pull-specific-branch-from-git
-<br/>
-<br/>
+* https://help.github.com/articles/set-up-git/
+* http://rogerdudler.github.io/git-guide/
+* http://gitref.org/remotes/
+* https://www.atlassian.com/git/tutorials/using-branches/
+* http://gitref.org/branching/#branch
+* http://stackoverflow.com/questions/9529497/what-is-origin-in-git
+* http://stackoverflow.com/questions/20033863/pull-specific-branch-from-git
+
+### SSH and Git
+* https://help.github.com/articles/generating-ssh-keys/
+* https://github.com/settings/ssh
+
 ### Markdown for blogging
-https://guides.github.com/features/mastering-markdown/
-<br/>http://markdowntutorial.com/
-<br/>https://daringfireball.net/projects/markdown/basics
-<br/>http://mathewmitchell.net/tutorials/markdown/
+* https://guides.github.com/features/mastering-markdown/
+* http://markdowntutorial.com/
+* https://daringfireball.net/projects/markdown/basics
+* http://mathewmitchell.net/tutorials/markdown/
