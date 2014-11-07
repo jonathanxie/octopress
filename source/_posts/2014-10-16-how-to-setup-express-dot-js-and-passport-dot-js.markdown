@@ -4,7 +4,7 @@ title: "How to setup ExpressJS/Passport with a REST API"
 date: 2014-10-16 21:46:06 -0700
 comments: true
 categories: 
-published: true
+published: false
 ---
 
 I'm building a mobile app using (Express)[http://www.expressjs.com] on the server side. I needed registration
