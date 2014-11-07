@@ -388,7 +388,9 @@ The steps I took are:
 
 7. Copy your ssh-key to your clipboard on Mac OS X: `pbcopy < ~/.ssh/id_rsa.pub`
 
-8. Go to SSH settings on github: [https://github.com/settings/ssh](https://github.com/settings/ssh)
+8. Go to SSH settings on github: [https://github.com/settings/ssh](https://github.com/settings/ssh), click on `Add SSH key` and then enter in the key you copied. 
+
+9. Next edit the file `.git/config` in your octopress directory by changing `url=https` to `url=ssh`. You should see that in two places in your config file.
 
 ## References
 
