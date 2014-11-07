@@ -271,7 +271,10 @@ rake setup_github_pages
 
 This rake task will:
 
-1. Ask for and store your Github Pages repository url: `https://github.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME.github.io.git`
+1. Ask for and store your Github Pages repository url: `git@github.com:YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME.github.io.git`
+
+	Note that my repository with a SSH link is: `git@github.com:jonathanxie/jonathanxie.github.io.git`
+
 2. Rename the remote respository pointing to `https://github.com/YOUR_GITHUB_USERNAME/octopress` from 'origin' to 'octopress'
 3. Add your Github Pages repository pointing to `https://github.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME.github.io.git` as the default origin remote.
 4. Switch the active branch from `master` to `source`. 
