@@ -354,62 +354,78 @@ The steps I took are:
 
 1. Run: `ssh-keygen -t rsa -C jonxie@jonxie.com`
 
-2. Push enter when you see the following output where `ssh-keygen` is asking you for a filename to save the key:
+2. Push enter when you see the following output where **ssh-keygen** is asking you for a filename to save the key:
 
-		```
 		Generating public/private rsa key pair.
 		Enter file in which to save the key (/Users/jontse/.ssh/id_rsa): 
-		```
 
-3. Since I didn't have an SSH directory yet, `ssh-keygen` created one for me. It also asked me for a passphrase which is a password, so enter the same passphrase twice
 
-		```
+3. Since I didn't have an SSH directory yet, **ssh-keygen** created one for me. It also asked me for a passphrase, which is a password, so enter the same passphrase twice
+
 		Enter passphrase (empty for no passphrase): 
 		Enter same passphrase again: 
-		```
 
-4. Next you should see the following output (Note: I didn't show my key's randomart image and the finger print is taken from github's ssh-keygen page):
+4. Next you should see something similar to the following output:
 
-		```
 		Your identification has been saved in /Users/jontse/.ssh/id_rsa.
 		Your public key has been saved in /Users/jontse/.ssh/id_rsa.pub.
 		The key fingerprint is:
 		01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db jonxie@jonxie.com
 		The key's randomart image is:
-		```
+
 
 5. Run `eval "$(ssh-agent -s)"` and you should see output like:
 
-		```
 		Agent pid 5888
-		```
 
 6. The add your ssh key to the ssh agent: `ssh-add ~/.ssh/id_rsa`
 
 7. Copy your ssh-key to your clipboard on Mac OS X: `pbcopy < ~/.ssh/id_rsa.pub`
 
-8. Go to SSH settings on github: [https://github.com/settings/ssh](https://github.com/settings/ssh), click on `Add SSH key` and then enter in the key you copied. 
+8. Go to SSH settings on github: [https://github.com/settings/ssh](https://github.com/settings/ssh), click on `Add SSH key` at the top right and then enter in the key you copied. 
 
-9. Next you have to change your git remote URLs from `https` to `ssh`. To look at your remote repositories run: `git remote -v`
+9. Test everything out now with this command: `ssh -T git@github.com`
 
-		```
+	You may see this output and if you do, make sure that the fingerpint matches the fingerprint you saw when you ran `ssh-keygen`. If it's correct, then say **yes** to the question.
+
+		The authenticity of host 'github.com (207.97.227.239)' can't be established.
+		# RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+		# Are you sure you want to continue connecting (yes/no)?
+
+10. If everything is correct, then you should see something like:
+
+		Hi jonathanxie! You've successfully authenticated, but GitHub does not provide shell access.
+
+11. Next you have to change your git remote URLs from **https** to **ssh**. To look at your remote repositories run: 
+
+	`git remote -v`
+
 		octopress	https://github.com/jonathanxie/octopress.git (fetch)
 		octopress	https://github.com/jonathanxie/octopress.git (push)
 		origin	https://github.com/jonathanxie/jonathanxie.github.io (fetch)
 		origin	https://github.com/jonathanxie/jonathanxie.github.io (push)
-		```
 
-		Notice that all entries say `https://`? That needs to change to SSH which is something like: `git@github.com:USERNAME/YOUR_REPOSITORY.git`
+	Notice that all entries start with `https://`. Those entries need to change to an **SSH URL** which looks like: `git@github.com:USERNAME/YOUR_REPOSITORY.git`
 
-10. Change the remote address `octopress` to use SSH: 
+12. Change the remote address **octopress** to use SSH: 
 
-		`git remote set-url octopress git@github.com:jonathanxie/octopress.git`
+	`git remote set-url octopress git@github.com:jonathanxie/octopress.git`
 
-11. Change the remote address for `origin` to use SSH
+13. Change the remote address for **origin** to use SSH
 
-		`git remote set-url origin git@github.com:jonathanxie/jonathanxie.github.io`
+	`git remote set-url origin git@github.com:jonathanxie/jonathanxie.github.io`
 
+14. Now to see your changes to the remote repositories, run: `git remote -v`
 
+		octopress	git@github.com:jonathanxie/octopress.git (fetch)
+		octopress	git@github.com:jonathanxie/octopress.git (push)
+		origin	git@github.com:jonathanxie/jonathanxie.github.io (fetch)
+		origin	git@github.com:jonathanxie/jonathanxie.github.io (push)
+
+15. Now if everything works fine and if you have committed changes in your repository,if you run: `git push octopress source`, it shouldn't prompt you for your username or password anymore.
+
+16. If there are any issues, go to [github's help page](https://help.github.com/articles/error-permission-denied-publickey/) for help.
+		
 ## References
 
 ### Octopress 
@@ -431,6 +447,8 @@ The steps I took are:
 
 ### SSH and Git
 * https://help.github.com/articles/generating-ssh-keys/
+* https://help.github.com/articles/changing-a-remote-s-url/
+* https://help.github.com/articles/error-permission-denied-publickey/
 * https://github.com/settings/ssh
 
 ### Markdown for blogging
