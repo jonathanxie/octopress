@@ -345,6 +345,51 @@ When you push from `source` to `octopress`, git will create a new branch in the 
 git clone https://github.com/jonathanxie/octopress.git -b source --single-branch
 {% endcodeblock %}
 
+
+## Setting Up SSH Keys and Github
+
+If you don't want to continually type in your username and password when you push to github, you can set up SSH keys described in more detail [here](https://help.github.com/articles/generating-ssh-keys/).
+
+The steps I took are:
+
+1. Run: `ssh-keygen -t rsa -C jonxie@jonxie.com`
+
+2. Push enter when you see the following output where `ssh-keygen` is asking you for a filename to save the key:
+
+		```
+		Generating public/private rsa key pair.
+		Enter file in which to save the key (/Users/jontse/.ssh/id_rsa): 
+		```
+
+3. Since I didn't have an SSH directory yet, `ssh-keygen` created one for me. It also asked me for a passphrase which is a password, so enter the same passphrase twice
+
+		```
+		Enter passphrase (empty for no passphrase): 
+		Enter same passphrase again: 
+		```
+
+4. Next you should see the following output (Note: I didn't show my key's randomart image and the finger print is taken from github's ssh-keygen page):
+
+		```
+		Your identification has been saved in /Users/jontse/.ssh/id_rsa.
+		Your public key has been saved in /Users/jontse/.ssh/id_rsa.pub.
+		The key fingerprint is:
+		01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db jonxie@jonxie.com
+		The key's randomart image is:
+		```
+
+5. Run `eval "$(ssh-agent -s)"` and you should see output like:
+
+		```
+		Agent pid 5888
+		```
+
+6. The add your ssh key to the ssh agent: `ssh-add ~/.ssh/id_rsa`
+
+7. Copy your ssh-key to your clipboard on Mac OS X: `pbcopy < ~/.ssh/id_rsa.pub`
+
+8. Go to SSH settings on github: [https://github.com/settings/ssh](https://github.com/settings/ssh)
+
 ## References
 
 ### Octopress 
