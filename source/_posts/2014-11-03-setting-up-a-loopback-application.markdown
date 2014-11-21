@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Using LoopBack for Authentication and Authorization"
+title: "Setting up a Looback application"
 date: 2014-11-03 14:44:30 -0800
 comments: true
 categories: [LoopBack, StrongLoop, NodeJS]
+published: true
 ---
 
 I'm building a mobile app that calls a REST api from a NodeJS server. There are a number of frameworks to use:
@@ -23,10 +24,11 @@ I decided to use LoopBack based on what I read [here](http://strongloop.com/stro
 2. [homebrew](http://www.brew.sh): 0.9.5
 3. [mongodb](http://www.mongodb.org): 2.6.5
 4. [mysql](http://www.mysql.com): 5.6.21
-5. [nvm](https://github.com/creationix/nvm): 0.17.3
-6. [Node.js](http://nodejs.org/):	0.10.33
-7. [npm](https://www.npmjs.org/): 1.4.28
-8. [strongloop](https://github.com/strongloop/strongloop): 2.9.2
+5. [postgres](http://www.postgres.org): 9.3.5
+6. [nvm](https://github.com/creationix/nvm): 0.17.3
+7. [Node.js](http://nodejs.org/):	0.10.33
+8. [npm](https://www.npmjs.org/): 1.4.28
+9. [strongloop](https://github.com/strongloop/strongloop): 2.9.2
 
 
 ## Initial Setup to create a LoopBack REST API project
@@ -411,7 +413,7 @@ Before you were using StrongLoop's in-memory datasource to save data. Now it's t
 
 18. From the root directory of your LoopBack project run: `node server/create-test-data.js`
 
-    If all goes well you should see the following output:
+    If all went well, you should see the following output:
 
     ```
     Record created: { email: 'foo@bar.com',
@@ -426,6 +428,50 @@ Before you were using StrongLoop's in-memory datasource to save data. Now it's t
       id: 2 }
     done
     ```
+
+
+19. Run `slc run` and then go to [http://localhost:3000/api/accounts](http://localhost:3000/api/accounts) and you should see an XML or JSON response of the data you just created:
+
+    ```
+    <response>
+      <result>
+        <email>foo@bar.com</email>
+        <level>10</level>
+        <created>2014-11-06T07:41:07.000Z</created>
+        <modified>2014-11-06T07:41:07.000Z</modified>
+        <id>1</id>
+      </result>
+      <result>
+        <email>bar@bar.com</email>
+        <level>20</level>
+        <created>2014-11-06T07:41:07.000Z</created>
+        <modified>2014-11-06T07:41:07.000Z</modified>
+        <id>2</id>
+      </result>
+    </response>
+    ```
+
+    You can also go to [http://localhost:3000/explorer/#!/accounts/account_find](http://localhost:3000/explorer/#!/accounts/account_find) to see the JSON data you just created:
+
+    ```
+    [
+      {
+        "email": "foo@bar.com",
+        "level": 10,
+        "created": "2014-11-06T07:41:07.000Z",
+        "modified": "2014-11-06T07:41:07.000Z",
+        "id": 1
+      },
+      {
+        "email": "bar@bar.com",
+        "level": 20,
+        "created": "2014-11-06T07:41:07.000Z",
+        "modified": "2014-11-06T07:41:07.000Z",
+        "id": 2
+      }
+    ]
+    ```
+
 
 ## References
 
